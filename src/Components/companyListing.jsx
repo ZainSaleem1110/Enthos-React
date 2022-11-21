@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import EmployerLogo from '../assets/svg/company-1.png'
 import { BsFillLightningFill, BsCart3 } from 'react-icons/bs'
 
-const CompanyListing = ({ tagBgColor, tagTextColor, applyIcon, cartIcon, borderColor, mainText }) => {
+const CompanyListing = ({ tagBgColor, tagTextColor, applyIcon, cartIcon, borderColor, mainText, toggleButton }) => {
     const [detail, setDetail] = useState(false)
 
     const handleDetailPage = () => {
@@ -27,17 +27,29 @@ const CompanyListing = ({ tagBgColor, tagTextColor, applyIcon, cartIcon, borderC
                             Ipsum has been the industry's orem Ipsum is simply dummy text of the printing and typesetting
                             industry. Lorem Ipsum has been the industry'sorem Ipsum is simply dummy text of the printing and
                             typesetting industry. </p>
-                        <div className="d-flex flex-wrap align-items-center justify-content-sm-start gap-3 justify-content-center">
-                            <p className="px-3 d-flex justify-content-center align-items-center font-500"
-                                style={{ color: `${tagTextColor}`, background: `${tagBgColor}`, height: "25px", borderRadius: "5px" }}>C++</p>
-                            <p className="px-3 d-flex justify-content-center align-items-center font-500"
-                                style={{ color: `${tagTextColor}`, background: `${tagBgColor}`, height: "25px", borderRadius: "5px" }}>Java</p>
-                            <p className="px-3 d-flex justify-content-center align-items-center font-500"
-                                style={{ color: `${tagTextColor}`, background: `${tagBgColor}`, height: "25px", borderRadius: "5px" }}>Python</p>
-                            <p className="px-3 d-flex justify-content-center align-items-center font-500"
-                                style={{ color: `${tagTextColor}`, background: `${tagBgColor}`, height: "25px", borderRadius: "5px" }}>Microservices</p>
-                            <p className="px-3 d-flex justify-content-center align-items-center font-500"
-                                style={{ color: `${tagTextColor}`, background: `${tagBgColor}`, height: "25px", borderRadius: "5px" }}>Angular</p>
+                        <div className="d-flex justify-content-between">
+                            <div className="d-flex flex-wrap align-items-center justify-content-sm-start gap-3 justify-content-center">
+                                <p className="px-3 d-flex justify-content-center align-items-center font-500"
+                                    style={{ color: `${tagTextColor}`, background: `${tagBgColor}`, height: "25px", borderRadius: "5px" }}>C++</p>
+                                <p className="px-3 d-flex justify-content-center align-items-center font-500"
+                                    style={{ color: `${tagTextColor}`, background: `${tagBgColor}`, height: "25px", borderRadius: "5px" }}>Java</p>
+                                <p className="px-3 d-flex justify-content-center align-items-center font-500"
+                                    style={{ color: `${tagTextColor}`, background: `${tagBgColor}`, height: "25px", borderRadius: "5px" }}>Python</p>
+                                <p className="px-3 d-flex justify-content-center align-items-center font-500"
+                                    style={{ color: `${tagTextColor}`, background: `${tagBgColor}`, height: "25px", borderRadius: "5px" }}>Microservices</p>
+                                <p className="px-3 d-flex justify-content-center align-items-center font-500"
+                                    style={{ color: `${tagTextColor}`, background: `${tagBgColor}`, height: "25px", borderRadius: "5px" }}>Angular</p>
+                            </div>
+                            {toggleButton && toggleButton === true ? (
+                                <div className="d-flex align-items-center h-100">
+                                <label className="switch">
+                                    <input type="checkbox" />
+                                    <span className="slider round"></span>
+                                </label>
+                            </div>
+                            ):(
+                                ""
+                            )}
                         </div>
                     </>
                 ) : (
@@ -49,8 +61,8 @@ const CompanyListing = ({ tagBgColor, tagTextColor, applyIcon, cartIcon, borderC
                             typesetting industry. </p>
                         <h1 class="mt-5 font-700" style={{ fontSize: "20px" }}>About Job</h1>
                         <p className="my-3 font-500" style={{ wordSpacing: "5px" }}>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's orem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry'sorem Ipsum is simply dummy text of the printing and typesetting industry.
-                        Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's orem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry'sorem Ipsum is simply dummy text of the printing and typesetting industry.
-                         </p>
+                            Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's orem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry'sorem Ipsum is simply dummy text of the printing and typesetting industry.
+                        </p>
                     </>
                 )}
             </div>
@@ -68,24 +80,24 @@ const CompanyListing = ({ tagBgColor, tagTextColor, applyIcon, cartIcon, borderC
                     </p>
                 </div>
                 <div>
-                {detail === true ? (
-                    <>
-                        <div className="d-flex flex-wrap align-items-center gap-3 justify-content-center mt-5 pt-5">
-                            <p className="px-3 d-flex justify-content-center align-items-center font-500"
-                                style={{ color: `${tagTextColor}`, background: `${tagBgColor}`, height: "25px", borderRadius: "5px" }}>C++</p>
-                            <p className="px-3 d-flex justify-content-center align-items-center font-500"
-                                style={{ color: `${tagTextColor}`, background: `${tagBgColor}`, height: "25px", borderRadius: "5px" }}>Java</p>
-                            <p className="px-3 d-flex justify-content-center align-items-center font-500"
-                                style={{ color: `${tagTextColor}`, background: `${tagBgColor}`, height: "25px", borderRadius: "5px" }}>Python</p>
-                            <p className="px-3 d-flex justify-content-center align-items-center font-500"
-                                style={{ color: `${tagTextColor}`, background: `${tagBgColor}`, height: "25px", borderRadius: "5px" }}>Microservices</p>
-                            <p className="px-3 d-flex justify-content-center align-items-center font-500"
-                                style={{ color: `${tagTextColor}`, background: `${tagBgColor}`, height: "25px", borderRadius: "5px" }}>Angular</p>
-                        </div>
-                    </>
-                ) : (
-                    ""
-                )}
+                    {detail === true ? (
+                        <>
+                            <div className="d-flex flex-wrap align-items-center gap-3 justify-content-center mt-5 pt-5">
+                                <p className="px-3 d-flex justify-content-center align-items-center font-500"
+                                    style={{ color: `${tagTextColor}`, background: `${tagBgColor}`, height: "25px", borderRadius: "5px" }}>C++</p>
+                                <p className="px-3 d-flex justify-content-center align-items-center font-500"
+                                    style={{ color: `${tagTextColor}`, background: `${tagBgColor}`, height: "25px", borderRadius: "5px" }}>Java</p>
+                                <p className="px-3 d-flex justify-content-center align-items-center font-500"
+                                    style={{ color: `${tagTextColor}`, background: `${tagBgColor}`, height: "25px", borderRadius: "5px" }}>Python</p>
+                                <p className="px-3 d-flex justify-content-center align-items-center font-500"
+                                    style={{ color: `${tagTextColor}`, background: `${tagBgColor}`, height: "25px", borderRadius: "5px" }}>Microservices</p>
+                                <p className="px-3 d-flex justify-content-center align-items-center font-500"
+                                    style={{ color: `${tagTextColor}`, background: `${tagBgColor}`, height: "25px", borderRadius: "5px" }}>Angular</p>
+                            </div>
+                        </>
+                    ) : (
+                        ""
+                    )}
                 </div>
             </div>
         </div>

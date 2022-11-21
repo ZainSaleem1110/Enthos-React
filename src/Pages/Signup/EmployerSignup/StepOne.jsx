@@ -3,6 +3,7 @@ import Navbar from '../../../Components/Navbar'
 import Banner from '../../../Components/Banner'
 import Footer from '../../../Components/Footer'
 import { Link, useNavigate } from 'react-router-dom'
+import axios from 'axios'
 
 export default function StepOne() {
     const navigate = useNavigate()
@@ -49,6 +50,7 @@ export default function StepOne() {
         if (signupData.firstName !== "" && signupData.lastName !== "" && signupData.email !== "" && signupData.password !== "" && signupData.mobileNo !== "" && signupData.checkbox !== false) {
             setLoader(true)
             console.log(signupData, "signupData")
+            SignupDataPost()
         }
     }
 
@@ -78,6 +80,27 @@ export default function StepOne() {
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [loader])
+
+    const SignupDataPost = () => {
+        axios.post('http://workbridgeteam.com/ad/api/public/api/register', {
+            name : "adnan",
+            email : "adnan44543312312@gmail.com",
+            password : "abcd1234",
+            first_name : "Adnan",
+            last_name : "Sharif",
+            country_id : "1",
+            mobile : "3224534144",
+            is_term_accept : 1,
+            user_type : 1
+        })
+          .then(function (response) {
+            console.log(response,"if");
+          })
+          .catch(function (error) {
+            console.log(error,"else");
+          });
+    }
+
   return (
     <div>
         <Navbar/>

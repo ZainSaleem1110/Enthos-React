@@ -1,10 +1,11 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { BsCart3 } from 'react-icons/bs'
 import ProfileLogo from '../assets/svg/profile.png'
+import {userNavigate} from 'react-router-dom'
 
-function AuthNavbar() {
-
+function AuthNavbar({ status }) {
+const navigate = useNavigate()
     return (
         <div className="banner">
             <nav className="navbar navbar-expand-lg py-4 px-sm-5 px-3" style={{ boxShadow: 'none' }}>
@@ -22,8 +23,16 @@ function AuthNavbar() {
                             <span>Hi, John</span>
                         </div>
                         <div className="d-flex align-items-center justify-content-center gap-3" style={{ color: "#FFB538" }}>
-                            <BsCart3 style={{ color: "#FFB538", textDecoration: "none", fontSize: "45px" }} />
-                            <span>Cart</span>
+                            {status && status === "EmployerDashboard" ? (
+                                <div className="d-flex justify-content-center">
+                                    <button className="banner_btn" style={{ background: "#FFB538", color: "white" }} onClick={()=>navigate('/find-talent')}>Post your Jobs Globally</button>
+                                </div>
+                            ) : (
+                                <>
+                                    <BsCart3 style={{ color: "#FFB538", textDecoration: "none", fontSize: "45px" }} />
+                                    <span>Cart</span>
+                                </>
+                            )}
                         </div>
                     </div>
                 </div>

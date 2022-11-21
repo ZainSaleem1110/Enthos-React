@@ -26,6 +26,7 @@ import Profile from '../Pages/Profile'
 import ProfileEdit from '../Pages/Profile/EditProfile'
 import ChangePassword from '../Pages/Profile/ChangePass'
 import EmployerDashboard from '../Pages/EmployerDashboard'
+import MatchResumeStepOne from '../Pages/Profile/MatchResume/StepOne'
 
 export default function index() {
     return (
@@ -58,6 +59,7 @@ export default function index() {
                     <Route path="/profile/edit-profile" element={<ProfileEdit/>}/>
                     <Route path="/profile/change-pass" element={<ChangePassword/>}/>
                     <Route path="/employer-dashboard" element={<EmployerDashboard/>}/>
+                    <Route path="/match-resume-step-one" element={<MatchResumeStepOne/>}/>
                 </Routes>
            </BrowserRouter> 
         </div>

@@ -5,14 +5,15 @@ import Footer from '../../Components/Footer'
 import {MdOutlineClose} from 'react-icons/md'
 import {AiOutlineMail, AiFillLinkedin} from 'react-icons/ai'
 import {BsTelephone} from 'react-icons/bs'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import Location from "../../assets/svg/location.png"
 
 const InterestedTags = ["Technical Support Analyst", "Application Administrator", "Application Support Analyst", "System Administrator", "Technical Support Engineer"]
 
 const TechTags = ["Active Directory", "SQL Server", "Windows Server", "Apache Tomcat"]
 
-export default function index() {
+export default function Index() {
+    const navigate = useNavigate()
     return (
         <div>
             <AuthNavbar />
@@ -69,7 +70,7 @@ export default function index() {
                                 <button className="mt-4 w-100" style={{ height: "45px", border: "2px solid #FFB538", background: "none", borderRadius: "20px", color: "#FFB538", }}>Upload new Resume</button>
                             </div>
                             <div className="mt-2">
-                                <button className="mt-4 w-100" style={{ height: "45px", background: "#FFB538", borderRadius: "20px", color: "white", border: "none", }}>Match Your Resume</button>
+                                <button className="mt-4 w-100" style={{ height: "45px", background: "#FFB538", borderRadius: "20px", color: "white", border: "none", }} onClick={()=>navigate('/match-resume-step-one')}>Match Your Resume</button>
                             </div>
                             <div className="d-flex justify-content-center mt-3 ">
                                 <Link to="/profile/change-pass" className="Link text-center w-100" style={{ color: "#143975", }}>Change my Password</Link>

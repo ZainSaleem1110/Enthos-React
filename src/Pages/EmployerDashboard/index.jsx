@@ -25,7 +25,7 @@ const Filters = ["Job Title", "Active", "Date Posted", "Expiry Date", "Applicati
 export default function index() {
     return (
         <div>
-            <AuthNavbar />
+            <AuthNavbar status="EmployerDashboard" />
             <div className="d-flex justify-content-center align-items-center px-sm-5 px-2 mt-5 pb-5 flex-wrap" style={{ columnGap: "20px" }}>
                 {Options.map((items) => {
                     return <DashboardOptions Data={items} />
@@ -64,7 +64,7 @@ export default function index() {
                         <div className='px-4'>
                             <div>
                                 {noOfData.map((items) => {
-                                    return <CompanyListing tagBgColor="#E1E1E1" tagTextColor="#4F4F4F" borderColor="#BDBDBD" applyIcon="#FFB53B" cartIcon="#2BB19D" />
+                                    return <CompanyListing tagBgColor="#E1E1E1" tagTextColor="#4F4F4F" borderColor="#BDBDBD" applyIcon="#FFB53B" cartIcon="#2BB19D" toggleButton={true} />
                                 })}
                             </div>
                         </div>
@@ -73,7 +73,6 @@ export default function index() {
                 <div className="d-flex justify-content-center pb-4">
                     <button className="banner_btn" style={{ background: "#FFB538", color: "white" }}>See more</button>
                 </div>
-
             </div>
             <div className="py-4 banner-content">
                 <Banner textColor="white" />

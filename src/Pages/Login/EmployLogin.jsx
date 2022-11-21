@@ -1,11 +1,12 @@
-import React, { useState,useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 import Navbar from '../../Components/Navbar'
 import Footer from '../../Components/Footer'
 import Banner from '../../Components/Banner'
 import Img from '../../assets/svg/girl.png'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 
 export default function EmployLogin() {
+    const navigate = useNavigate()
     const [value, setValue] = useState({
         username: "",
         password: ""
@@ -22,11 +23,11 @@ export default function EmployLogin() {
         if (value.username === "" && value.password === "") {
             setUsernameError(true)
             setPasswordError(true)
-        }else if(value.username === ""){
+        } else if (value.username === "") {
             setUsernameError(true)
-        }else if(value.password === ""){
+        } else if (value.password === "") {
             setPasswordError(true)
-        }else{
+        } else {
             setLoader(true)
             console.log(value, "values")
         }
@@ -41,13 +42,16 @@ export default function EmployLogin() {
     }
 
     useEffect(() => {
-        setTimeout(() => {
-            setLoader(false)
-            setValue({
-                username: "",
-                password: ""
-            })
-        }, 2000)
+        if (loader === true) {
+            setTimeout(() => {
+                setLoader(false)
+                setValue({
+                    username: "",
+                    password: ""
+                })
+                navigate('/employer-dashboard')
+            }, 2000)
+        }
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [loader])
 
@@ -87,7 +91,7 @@ export default function EmployLogin() {
                     </button>
                     <div className="d-flex flex-column align-items-center mt-3">
                         <p className="font-500" style={{ fontSize: "18px" }}>Don’t have an account? <span>
-                        <Link to="/employer-signup" className="Link" style={{ color: "#FFB538" }}>Sign up</Link>
+                            <Link to="/employer-signup" className="Link" style={{ color: "#FFB538" }}>Sign up</Link>
                         </span>
                         </p>
                         <Link to="/forgot-pass" className="Link" style={{ color: "#FFB538" }}>Forgot password?</Link>
